@@ -283,7 +283,7 @@ export default function LocationPage({ params }: { params: Promise<{ id: string 
                  border: '2px solid rgba(255, 255, 255, 0.5)'
                }}>
             <img
-              src="/assets/Icon2.PNG"
+              src="/assets/icon3.PNG"
               alt="Information Guide"
               className="w-full h-full object-cover"
               onError={(e) => {
