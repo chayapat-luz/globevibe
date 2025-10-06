@@ -34,7 +34,7 @@ const locationsData: Record<string, LocationData> = {
     tips: 'Visit early morning to avoid crowds. Climb the 309 steps or take the cable car. Dress modestly - shoulders and knees covered.',
     character: {
       message: 'Welcome to Doi Suthep! Did you know the golden chedi contains sacred relics of Buddha? The temple glows magnificently at sunset!',
-      x: 20,
+      x: 60,
       y: 40
     },
     nextLocation: 'natural-history'
@@ -50,7 +50,7 @@ const locationsData: Record<string, LocationData> = {
     tips: 'Allow 2-3 hours for your visit. Photography is allowed in most areas. Great for families with children.',
     character: {
       message: 'Hello explorer! This region was once home to dinosaurs millions of years ago. The fossils you see here tell stories of ancient Thailand!',
-      x: 20,
+      x: 70,
       y: 40
     },
     nextLocation: 'yaowarat'
@@ -66,7 +66,7 @@ const locationsData: Record<string, LocationData> = {
     tips: 'Best visited in the evening when the street food stalls open. Try the famous pad thai and mango sticky rice. Bring cash!',
     character: {
       message: 'Sawatdee! Welcome to the heart of Bangkok\'s Chinatown! The best time to explore is after sunset when the food vendors set up. Try everything!',
-      x: 20,
+      x: 30,
       y: 60
     },
     nextLocation: 'lamai-beach'
