@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 interface RetroIPodProps {
-  audioRef: React.RefObject<HTMLAudioElement>;
+  audioRef: React.RefObject<HTMLAudioElement | null>;
   songName: string;
   onClose: () => void;
 }
@@ -12,7 +12,7 @@ export default function RetroIPod({ audioRef, songName, onClose }: RetroIPodProp
   const [volume, setVolume] = useState(0.7);
   const [isMuted, setIsMuted] = useState(false);
   const [audioData, setAudioData] = useState<number[]>(new Array(20).fill(0));
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
   const analyzerRef = useRef<AnalyserNode | null>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
 

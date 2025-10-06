@@ -158,8 +158,7 @@ function Earth() {
   const thailandLat = 13;
   const thailandLon = 101;
 
-  const handleClick = (event: THREE.Event) => {
-    event.stopPropagation();
+  const handleClick = () => {
     router.push('/thailand');
   };
 

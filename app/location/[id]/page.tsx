@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, use } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import RetroIPod from '../../components/RetroIPod';
@@ -89,14 +89,15 @@ const locationsData: Record<string, LocationData> = {
   }
 };
 
-export default function LocationPage({ params }: { params: { id: string } }) {
+export default function LocationPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
+  const { id } = use(params);
   const [showInfo, setShowInfo] = useState(false);
   const [showCharacterMessage, setShowCharacterMessage] = useState(false);
   const [showIPod, setShowIPod] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  const location = locationsData[params.id];
+  const location = locationsData[id];
 
   if (!location) {
     return <div className="flex items-center justify-center h-screen">Location not found</div>;
@@ -108,7 +109,7 @@ export default function LocationPage({ params }: { params: { id: string } }) {
       audioRef.current.volume = 0.7;
       audioRef.current.play().catch(err => console.log('Auto-play prevented:', err));
     }
-  }, [params.id]);
+  }, [id]);
 
   const handleNext = () => {
     router.push(`/location/${location.nextLocation}`);
@@ -116,7 +117,7 @@ export default function LocationPage({ params }: { params: { id: string } }) {
 
   // Get background image based on location ID
   const getBackgroundImage = () => {
-    switch (params.id) {
+    switch (id) {
       case 'doi-suthep':
         return '/assets/watt2.PNG';
       case 'natural-history':
@@ -132,7 +133,7 @@ export default function LocationPage({ params }: { params: { id: string } }) {
 
   // Get music file based on location ID
   const getMusicFile = () => {
-    switch (params.id) {
+    switch (id) {
       case 'doi-suthep':
         return '/assets/music/Sunset at Wat Phra That Doi Suthep (Instrumental).mp3';
       case 'natural-history':
